@@ -4,9 +4,6 @@
 #include <pico/stdlib.h>
 #include <task.h>
 
-#include "display_run.h"
-#include "temp_display_queue.h"
-
 #define MAIN_LED_DELAY 800
 
 void led_task(void *pvParameters);
@@ -20,8 +17,7 @@ int main() {
 
     printf("Main Program Executation start!\n");
 
-    // start_tasks();
-    create_temp_display_queue_task();
+    start_tasks();
 
     return 0;
 }
@@ -43,10 +39,6 @@ void start_tasks() {
     while (true) {
         // Your program should never get here
     };
-}
-
-void display_task(void *pvParameters) {
-    run_display();
 }
 
 void led_task(void *pvParameters) {
