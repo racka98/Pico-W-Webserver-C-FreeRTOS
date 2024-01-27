@@ -1,16 +1,17 @@
 add_executable(${NAME}  
         blink.c
         blink_queue.c
-        ../local-libs/ssd1306/ssd1306.c # SSD1306 OLED DISPLAY LOCAL LIBRARY
-        ../local-libs/am2320/am2320.c # AM2320 SENSOR LOCAL LIBRARY
-        ../local-libs/am2320/am2320_2.c # AM2320 SENSOR LOCAL LIBRARY
-        ../local-libs/helpers/string_operations.c # MY STRING HELPERS
+        server.c
         )
+
+# Add local-libs
+include(../import_local_libs.cmake)
 
 # pull in common dependencies
 target_link_libraries(${NAME} 
         pico_stdlib                                 # for core functionality
         pico_cyw43_arch_lwip_threadsafe_background  # we need Wifi
+        pico_lwip_http
         FreeRTOS-Kernel-Heap4                       # FreeRTOS kernel and dynamic heap
         hardware_i2c                                # Hardware I2C
         hardware_adc                                # Hardware ADC

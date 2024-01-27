@@ -22,4 +22,7 @@ pico_sdk_init()
 # Initialize all other external libs & dependencies
 include(FreeRTOS_Kernel_import.cmake)
 
+# Run makefsdata python script to create htmldata.c
+include(makefsdata_python.cmake)
+
 add_subdirectory(src)

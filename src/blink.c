@@ -3,12 +3,12 @@
 #include <pico/cyw43_arch.h>
 #include <pico/stdlib.h>
 #include <task.h>
+#include "ssd1306.h"
 
 #define MAIN_LED_DELAY 800
 
 void led_task(void *pvParameters);
 
-void display_task(void *pvParameters);
 
 void start_tasks();
 
